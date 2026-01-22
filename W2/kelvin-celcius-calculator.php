@@ -6,25 +6,21 @@
 <body>
    
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-<label>Height (m)</label>
-<input name="heightVal">
-<label>Weight (kg)</label>
-<input name="weightVal">
+<label>Kelvin</label>
+<input name="kelvinVal">
 <input type="submit" value="Calculate">
 </form>
 </body>
 
 <?php
 if($_SERVER['REQUEST_METHOD'] == "POST") {
-$height = $_POST['heightVal'];
-$weight = $_POST['weightVal'];
-
-$bmi = $weight/($height * $height);
+$kelvin = $_POST['kelvinVal'];
+$result = $kelvin - 273.15;
 }
 ?>
 
 <?php
-echo $bmi;
+echo $result;
 ?>
     </html>
 
