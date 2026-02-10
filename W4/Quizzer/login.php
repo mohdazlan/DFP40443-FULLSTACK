@@ -1,29 +1,20 @@
 <?php
 // login.php - Entry point for the quiz system
-require_once 'config/app_config.php'
-session_start();
+require_once 'config/app_config.php';
+$error='';
+if($_SERVER['REQUEST_METHOD'] ==='POST'){
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
 
-// If user is already logged in, redirect to quiz
-if (isset($_SESSION['username'])) {
-    header('Location: quiz.php');
-    exit;
-}
-
-// Process login form submission
-$error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = trim($_POST['username'] ?? '');
-    
-    if (empty($username)) {
-        $error = 'Please enter your name';
-    } else {
-   
-        $_SESSION['username'] = htmlspecialchars($username);
-      
+    if(isset($users[$username]) && $users[$username] === $password){
+        //sekiranya benar
         header('Location: quiz.php');
-        exit;
+    } else {
+        //sekiranay tidak benar
+        $error="Invalid Username or Password";
     }
 }
+
 
 $pageTitle = 'Login';
 require_once 'includes/header.php';
@@ -37,7 +28,8 @@ require_once 'includes/header.php';
     <form method="POST" action="login.php">
         Your Name:
 
-         <input type="text" id="username" name="username" required>         
+         <input type="text"  name="username" required>   
+          <input type="password"  name="password" required>       
          <input type="submit" value="login">     
         </form> </div>  
 <?php require_once 'includes/footer.php'; ?>      
