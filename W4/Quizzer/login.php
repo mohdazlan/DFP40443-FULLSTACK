@@ -8,6 +8,10 @@ if($_SERVER['REQUEST_METHOD'] ==='POST'){
 
     if(isset($users[$username]) && $users[$username] === $password){
         //sekiranya benar
+        $_SESSION['username'] = $username;
+        $_SESSION['score'] = 0;
+        $_SESSION['soalanSemasa'] = 0;
+        
         header('Location: quiz.php');
     } else {
         //sekiranay tidak benar

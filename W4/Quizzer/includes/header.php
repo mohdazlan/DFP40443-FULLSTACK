@@ -1,7 +1,6 @@
 <?php
-
-session_start();
 $loggedIn= isset($_SESSION['username']);
+
 ?>
 <!DOCTYPE html>
 <html>
