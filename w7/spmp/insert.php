@@ -33,7 +33,7 @@ $HasilQSLPeranan = mysqli_query($conn, $sqlPeranan);
     <?php echo $mesej?>
     <h2>Enter New User</h2>
     <form method="POST" action="">
-        username: <input type="text" name="username"><br>
+        username: <input type="text" name="username" required><br>
         password: <input type="text" name="password"><br>
         peranan:<select name="peranan_id">
             <option value="">-- Sila Pilih Peranan --</option>
