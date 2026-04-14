@@ -1,6 +1,28 @@
 const showBtn = document.getElementById("loadMessage");
 const sysBtn = document.getElementById("loadSystem");
 const SQLBtn = document.getElementById("checkDB");
+const rolesBtn = document.getElementById("checkRoles");
+const listBtn = document.getElementById("listUsers");
+
+if(listBtn){
+   listBtn.addEventListener("click", function () {
+        fetch("users_list.php")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("result").innerHTML =  data ;
+            })
+    });
+}
+
+if (rolesBtn) {
+   rolesBtn.addEventListener("click", function () {
+        fetch("count_roles.php")
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById("result").innerHTML = "<p style='color:red'>" + data + "<p>";
+            })
+    });
+}
 
 if (SQLBtn) {
    SQLBtn.addEventListener("click", function () {

@@ -15,6 +15,8 @@ echo "Hello World";
     <button id="loadMessage">Check System Red</button>
     <button id="loadSystem">Check System</button>
     <button id="checkDB">Check DB</button>
+    <button id="checkRoles">Check Roles</button>
+    <button id="listUsers">List Users</button>
     <div id="result"></div>
     <script src="script.js"></script>
 </body>
